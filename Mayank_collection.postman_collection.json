@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "7a58fa93-306d-4afc-a36e-cd9b3dcc8414",
+		"name": "Mayank_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Response time is more than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(50);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response size is less than 5kb\", function () {\r",
+									"    pm.expect(pm.response.responseSize).to.be.below(5000);\r",
+									"});\r",
+									"\r",
+									"var jsonArrayData = pm.response.json();\r",
+									"console.log(jsonArrayData);\r",
+									"console.log(jsonArrayData.length);\r",
+									"console.log(jsonArrayData[0].id);\r",
+									"console.log(jsonArrayData[0].name);\r",
+									"console.log(jsonArrayData[0]);\r",
+									"\r",
+									"var ids=\"260\";\r",
+									"if(jsonArrayData[0].id==ids){  \r",
+									"      console.log(\"Correct id!!\");\r",
+									"    }\r",
+									"else{  \r",
+									"    console.log(\"Incorrect id!!\");\r",
+									"    }\r",
+									"\r",
+									"for(i=0;i<jsonArrayData.length;i++)\r",
+									"{    \r",
+									"    console.log(jsonArrayData[i].id);\r",
+									"    }"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Hello Mayank\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Response time is more than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(50);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response size is less than 5kb\", function () {\r",
+									"    pm.expect(pm.response.responseSize).to.be.below(5000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Hello Folks\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fc8cea0ce494816a11bf4a8510fafecd672ce12a649839a44b149bad81fb4865",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"Suraj Kumar\",\r\n        \"email\": \"sukumars1@gmail.com\",\r\n        \"gender\": \"male\",\r\n        \"status\": \"inactive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "PUT",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {\r",
+									"    console.log(response.json());\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Response time is more than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(50);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response size is less than 5kb\", function () {\r",
+									"    pm.expect(pm.response.responseSize).to.be.below(5000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fc8cea0ce494816a11bf4a8510fafecd672ce12a649839a44b149bad81fb4865",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"Suraj Kumar\",\r\n        \"email\": \"34@gmail.com\",\r\n        \"gender\": \"female\",\r\n        \"status\": \"inactive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users/6362",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users",
+								"6362"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PATCH",
+			"item": [
+				{
+					"name": "PATCH",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Hello Friends\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response size is less than 5kb\", function () {\r",
+									"    pm.expect(pm.response.responseSize).to.be.below(5000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fc8cea0ce494816a11bf4a8510fafecd672ce12a649839a44b149bad81fb4865",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"Suraj Kumar\",\r\n        \"email\": \"34@gmail.com\",\r\n        \"gender\": \"male\",\r\n        \"status\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users/6362",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users",
+								"6362"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response size is less than 5kb\", function () {\r",
+									"    pm.expect(pm.response.responseSize).to.be.below(5000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fc8cea0ce494816a11bf4a8510fafecd672ce12a649839a44b149bad81fb4865",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users/6362",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users",
+								"6362"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
